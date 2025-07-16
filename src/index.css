@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+body {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/21/17/57/wood-1846849_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}

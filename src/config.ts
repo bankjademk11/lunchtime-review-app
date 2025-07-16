@@ -1,0 +1,1 @@
+export const API_BASE_URL = 'http://YOUR_SERVER_IP_OR_DOMAIN:3001/api'; // เปลี่ยน YOUR_SERVER_IP_OR_DOMAIN เป็น IP หรือโดเมนจริง
