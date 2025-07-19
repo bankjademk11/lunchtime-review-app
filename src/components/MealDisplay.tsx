@@ -118,7 +118,7 @@ const MealDisplay: React.FC<MealDisplayProps> = ({ refreshTrigger, userId }) => 
               )}
             </div>
 
-            <ReviewForm mealId={meal.id} onReviewSubmitted={() => fetchReviewsForMeal(meal.id)} userId={userId} />
+            <ReviewForm mealId={meal.id} onReviewSubmitted={() => fetchReviewsForMeal(meal.id)} userId={userId || null} />
           </div>
         </div>
       )}

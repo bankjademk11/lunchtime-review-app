@@ -39,7 +39,7 @@ function App() {
   const [refreshTrigger, setRefreshTrigger] = useState(0);
   const [menuRequestRefreshTrigger, setMenuRequestRefreshTrigger] = useState(0);
   const [token, setToken] = useState<string | null>(null);
-  const [userId, setUserId] = useState<string | null>(null);
+  const [userId, _setUserId] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
