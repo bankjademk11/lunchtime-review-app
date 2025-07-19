@@ -26,9 +26,10 @@ const pollOptions: { [key: number]: string } = {
 
 interface MealDisplayProps {
   refreshTrigger: number;
+  userId?: string | null;
 }
 
-const MealDisplay: React.FC<MealDisplayProps> = ({ refreshTrigger }) => {
+const MealDisplay: React.FC<MealDisplayProps> = ({ refreshTrigger, userId }) => {
   const [meal, setMeal] = useState<Meal | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -117,7 +118,7 @@ const MealDisplay: React.FC<MealDisplayProps> = ({ refreshTrigger }) => {
               )}
             </div>
 
-            <ReviewForm mealId={meal.id} onReviewSubmitted={() => fetchReviewsForMeal(meal.id)} />
+            <ReviewForm mealId={meal.id} onReviewSubmitted={() => fetchReviewsForMeal(meal.id)} userId={userId} />
           </div>
         </div>
       )}

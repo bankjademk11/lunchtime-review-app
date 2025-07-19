@@ -16,7 +16,8 @@ const AdminDashboard: React.FC<{
   handleMealAdded: () => void;
   handleMenuRequestSubmitted: () => void;
   handleMealDeleted: () => void;
-}> = ({ refreshTrigger, menuRequestRefreshTrigger, handleMealAdded, handleMenuRequestSubmitted, handleMealDeleted }) => {
+  userId: string | null;
+}> = ({ refreshTrigger, menuRequestRefreshTrigger, handleMealAdded, handleMenuRequestSubmitted, handleMealDeleted, userId }) => {
   return (
     <div className="container mx-auto px-4 py-8 sm:py-10 bg-white rounded-lg shadow-xl mt-8">
       <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-800 mb-8 sm:mb-10 text-center tracking-tight">Admin Dashboard</h2>
@@ -173,7 +174,7 @@ function App() {
             <Route
               path="/" 
               element={
-                token ? <MealDisplay refreshTrigger={refreshTrigger} /> : <Navigate to="/login" replace />
+                token ? <MealDisplay refreshTrigger={refreshTrigger} userId={userId} /> : <Navigate to="/login" replace />
               }
             />
             <Route
@@ -186,6 +187,7 @@ function App() {
                     handleMealAdded={handleMealAdded}
                     handleMenuRequestSubmitted={handleMenuRequestSubmitted}
                     handleMealDeleted={handleMealDeleted}
+                    userId={userId}
                   />
                 ) : (
                   <Navigate to="/login" replace />

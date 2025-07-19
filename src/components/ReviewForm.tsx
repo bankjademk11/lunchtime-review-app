@@ -4,6 +4,7 @@ import axios from 'axios';
 interface ReviewFormProps {
   mealId: number;
   onReviewSubmitted: () => void;
+  userId: string | null;
 }
 
 const pollOptions = [
@@ -14,19 +15,11 @@ const pollOptions = [
   { label: 'แย่', value: 1, color: 'bg-red-600 hover:bg-red-700' },
 ];
 
-const ReviewForm: React.FC<ReviewFormProps> = ({ mealId, onReviewSubmitted }) => {
+const ReviewForm: React.FC<ReviewFormProps> = ({ mealId, onReviewSubmitted, userId }) => {
   const [submitting, setSubmitting] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [showForm, setShowForm] = useState<boolean>(false); // State to control form visibility
-  const [userId, setUserId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      setUserId(storedUserId);
-    }
-  }, []);
 
   const handlePollSubmit = async (ratingValue: number) => {
     if (!userId) {
